@@ -1,0 +1,8 @@
+
+bin/godoc
+
+src/golang.org/x/net/
+
+src/golang.org/x/tools/
+
+src/golang.org/x/xerrors/
