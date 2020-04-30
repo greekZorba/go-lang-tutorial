@@ -34,4 +34,12 @@ func main() {
 	for i, j := 0, 0; i < 10; i, j = i+1, j+10 {
 		fmt.Println("i :", i, "j :", j)
 	}
+
+	/*
+		컴파일 에러
+		for i, j := 0, 0; i < 10; i++, j += 10 {
+			fmt.Println("i :", i, "j :", j)
+		}
+	*/
+
 }
