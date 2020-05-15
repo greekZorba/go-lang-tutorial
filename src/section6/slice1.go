@@ -34,4 +34,11 @@ func main() {
 	fmt.Printf("%-5T %d %d %v \n", slice6, len(slice6), cap(slice6), slice6)
 	fmt.Printf("%-5T %d %d %v \n", slice7, len(slice7), cap(slice7), slice7)
 	fmt.Printf("%-5T %d %d %v \n", slice8, len(slice8), cap(slice8), slice8)
+
+	var slice9 []int
+
+	if slice9 == nil {
+		fmt.Println("this is nil slice!")
+	}
+
 }
