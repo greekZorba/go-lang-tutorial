@@ -19,7 +19,7 @@ func main() {
 	var sumResult = func(x, y int) int {
 		return x + y
 	}(10, 10)
- 
+
 	fmt.Println("sumResult : ", sumResult)
 
 }
