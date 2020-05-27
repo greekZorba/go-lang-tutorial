@@ -2,13 +2,13 @@ package main
 
 import "fmt"
 
-type Account struct {
+type account struct {
 	number   string
 	balance  float64
 	interest float64
 }
 
-func (a Account) calculate() float64 {
+func (a account) calculate() float64 {
 	return a.balance + (a.balance * a.interest)
 }
 
@@ -20,16 +20,16 @@ func main() {
 	//
 
 	// 선언 방법1
-	var kim *Account = new(Account)
+	var kim *account = new(account)
 	kim.number = "123-123"
 	kim.balance = 10000000
 	kim.interest = 0.12
 
 	// 선언 방법2
-	hong := &Account{number: "123-124", balance: 10000000, interest: 4.2}
+	hong := &account{number: "123-124", balance: 10000000, interest: 4.2}
 
 	// 선언 방법3
-	lee := new(Account)
+	lee := new(account)
 	lee.number = "123-125"
 	lee.balance = 30000000
 	lee.interest = 0.15
