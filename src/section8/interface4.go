@@ -20,7 +20,7 @@ func (c Cat) run() {
 	fmt.Println(c.name, " Cat is running")
 }
 
-func act(animal interface{ run() }) {
+func act(animal interface{ run() }) { // 익명 인터페이스(타입 정의 x)
 	animal.run()
 }
 
