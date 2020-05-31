@@ -10,7 +10,6 @@ func main() {
 	var emptyInterface interface{}
 	count := 9
 	flag := true
-	var nilValue []int
 
 	checkType(hello)
 	checkType(emptyInterface)
