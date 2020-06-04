@@ -11,6 +11,7 @@ func sendOnly(c chan<- int, cnt int) {
 	}
 
 	c <- 788
+	//fmt.Println(<-c) // 발신 전용 채널에서 수신 처리시 예외발생
 }
 
 func receiveOnly(c <-chan int) {
