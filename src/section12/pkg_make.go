@@ -1,8 +1,8 @@
 package main
 
 import (
-	oper "./arithmetics" // alias 사용
 	"fmt"
+	oper "section12/arithmetics" // alias 사용
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	// package main을 제외하고 package 문서에 등록
 	// 기본적으로 GOROOT의 패키지(pkg) 검색하고 없으면 -> GOPATH의 패키지(src/pkg) 검색
 	// go install 명령어 실행의 경우 -> GOPATH/pkg에 등록(문서화)
-	// godoc --http=6060(임의의 포트) -> pkg 이동 -> 본인 패키지 메서드 및 주석 확인(패키지, 타입, 메서드) 주석
+	// godoc --http=:6060(임의의 포트) -> pkg 이동 -> 본인 패키지 메서드 및 주석 확인(패키지, 타입, 메서드) 주석
 
 	// 패키지 사용 예제(사칙연산)
 	nums := oper.Numbers{X: 10, Y: 10}
