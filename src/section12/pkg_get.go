@@ -18,21 +18,19 @@ func main() {
 	xlFile, err := xlsx.OpenFile(xfile)
 
 	if err != nil {
+		fmt.Println(err)
 		panic("Excel loads error!")
 	}
 
 	for _, sheet := range xlFile.Sheets {
-		sheet.ForEachRow(func(r *xlsx.Row) error {
-			r.ForEachCell(func(c *xlsx.Cell) error {
-				text := c.String()
+		sheet.ForEachRow(func(row *xlsx.Row) error {
+			row.ForEachCell(func(cell *xlsx.Cell) error {
+				text := cell.String()
 				fmt.Printf("%s\t", text)
 				return nil
 			})
 			return nil
 		})
 
-		
 	}
 }
-
-
