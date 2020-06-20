@@ -44,5 +44,6 @@ func main() {
 	root, err := html.Parse(response.Body)
 	errorCheck(err)
 
-	
+	// ParseMainNodes 메서드를 크롤링(스크랩핑) 대상 URL 추출
+	urlList := scrape.Find
 }
