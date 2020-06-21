@@ -2,11 +2,12 @@
 package main
 
 import (
-	"bufio"
+	_ "bufio"
 	"fmt"
 	"net/http"
-	"os"
+	_ "os"
 	"strings"
+	_ "strings"
 	"sync"
 
 	"github.com/yhat/scrape"
@@ -22,6 +23,15 @@ import (
 const (
 	urlRoot = "https://ruliweb.com"
 )
+
+// 첫 번째 방문(메인 페이지) 대상으로 원하는 url을 파싱 후 반환하는 함수
+func parseMainNodes(n *html.Node) bool {
+	if n.DataAtom == atom.A && n.Parent != nil {
+		return scrape.Attr(n.Parent, "class") == "row"
+	}
+
+	return false
+}
 
 func errorCheck(err error) {
 	if err != nil {
@@ -45,5 +55,17 @@ func main() {
 	errorCheck(err)
 
 	// ParseMainNodes 메서드를 크롤링(스크랩핑) 대상 URL 추출
-	urlList := scrape.Find
+	urlList := scrape.FindAll(root, parseMainNodes)
+
+	for _ , link := range urlList {
+		// 대상 url 1차 출력
+		//fmt.Println("check main link : ", idx, *link)
+		//fmt.Println("Target url : ", scrape.Attr(link, "href"))
+		fileName := strings.Replace(scrape.Attr(link, "href"), "https://bbs.ruliweb.com/family/", "", 1)
+		//fmt.Println("fileName : ", fileName)
+
+		// 작업 대기열에 추가
+		workGroup.Add(1)
+		
+	}
 }
